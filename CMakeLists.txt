@@ -14,14 +14,27 @@ endif()
 
 # Add sources
 file(GLOB SOURCES
-    "${PROJECT_SOURCE_DIR}/src/main.c"
+    # "${PROJECT_SOURCE_DIR}/src/main.c"
     "${PROJECT_SOURCE_DIR}/src/*.c"
 )
 
+set(LIB_INC_DIR ${PROJECT_SOURCE_DIR}/lib/include)
+set(LIB_LINK_DIR ${PROJECT_SOURCE_DIR}/lib/lib)
+
 # Specify include Directory
 include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories("${LIB_INC_DIR}")
+
+
+link_directories(${LIB_LINK_DIR})
 
 add_executable(Calculator ${SOURCES})
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(Calculator Threads::Threads)
+
+target_link_libraries(Calculator libzlog.a)
 
 set_property(TARGET Calculator PROPERTY CXX_STANDARD 11)
 set_property(TARGET Calculator PROPERTY CXX_STANDARD_REQUIRED ON)

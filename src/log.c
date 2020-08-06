@@ -3,6 +3,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <string.h>
+#include <stdarg.h>
 
 int g_log_level = 0;
 unsigned char g_file_name[20] = {"./Log.log"};
