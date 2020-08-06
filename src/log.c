@@ -5,7 +5,7 @@
 #include <string.h>
 
 int g_log_level = 0;
-unsigned char g_file_name[20] = {"Log.log"};
+unsigned char g_file_name[20] = {"./Log.log"};
 
 void log_init()
 {
@@ -39,7 +39,7 @@ void get_time(unsigned char *time_str)
 	
     unsigned char  sz_usec[20] = {0};    // 微秒
 	unsigned char  sz_msec[20] = {0};    // 毫秒
-	
+
 	if (time_str == NULL)
 	{
 	    return;
@@ -69,15 +69,15 @@ unsigned char *log_level_to_str(int log_level)
     case Error:
         return "Error";
     case Info:
-        return "Error";
+        return "Info";
     case Warn:
-        return "Error";
+        return "Warn";
     case Debug:
-        return "Error";
+        return "Debug";
     case Verbose:
-        return "Error";
+        return "Verbose";
     case Trace:
-        return "Error";
+        return "Trace";
     
     default:
         return "Others";
@@ -95,7 +95,7 @@ void write_log_file(unsigned char *file_name, const char *function_name,
     {
         return;
     }
-    
+
     p_log_file = fopen(g_file_name, "at+");      // 打开文件, 每次写入的时候在后面追加
     if (NULL == p_log_file)
     {
@@ -104,7 +104,7 @@ void write_log_file(unsigned char *file_name, const char *function_name,
 
     get_time(&time_str);
     fputs(time_str, p_log_file);
-    
+
     snprintf(log_content, sizeof(log_content) - 1, "[%s][%s][%s][%04d] %s\n",
                 log_level_to_str(log_level), (strrchr(file_name, '/') + 1), function_name, code_line, content);
 
