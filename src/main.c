@@ -8,7 +8,7 @@
 
 int main(int argc, char** argv)
 {
-    // log_init();
+    log_init();
     
     initialize_cal_terminal();
     // log_to_file(Error, "test");
