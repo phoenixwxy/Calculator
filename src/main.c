@@ -10,27 +10,26 @@
 
 int main(int argc, char** argv)
 {
-    int a = 1;
-    int rc;
-    log_init();
+    // int a = 1;
+    // int rc;
+    // log_init();
 
-    rc = testlog_init();
-    if (rc < 0)
-    {
-        printf("test rc\n");
-        return rc;
-    }
-    log_to_file(Error, "test");
+    // rc = testlog_init();
+    // if (rc < 0)
+    // {
+    //     printf("test rc\n");
+    //     return rc;
+    // }
 
-    pzlog_info("test 123");
-    pzlog_info("test a = %d", a);
+    // pzlog_info("test 123");
+    // pzlog_info("test a = %d", a);
 
     // zlog_info(c, "hello, zlog");
 
     // dzlog_init("./test.conf", "log");
     // dzlog_set_category("log");    
 
-    initialize_cal_terminal();
+    initialize_cal_terminal(argc, argv);
     
     
     // log_to_file(Verbose, "test");

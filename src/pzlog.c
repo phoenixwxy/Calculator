@@ -9,7 +9,10 @@ int testlog_init()
         return -1;
     }
 
-    c = zlog_get_category("log");
+    if (c == NULL)
+    {
+        c = zlog_get_category("log");
+    }
 
     if (!c) {
         printf("get cat fail\n");

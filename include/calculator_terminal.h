@@ -3,6 +3,12 @@
 
 #include <stdio.h>
 
-void initialize_cal_terminal();
+void initialize_cal_terminal(int argc, char** argv);
+void select_chioce(int chioce);
+
+void function_help();
+void function_version();
+
+void function_program();
 
 #endif
